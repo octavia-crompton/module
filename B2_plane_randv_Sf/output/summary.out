@@ -1,0 +1,25 @@
+ SVE grid parameters 
+        ncol =           15
+        nrow =           50
+          dx =         1.00
+       slope =         1.00
+        epsh =         0.20
+        beta =         1.00
+ SVE time grid:  
+       dt_sw =        0.050s
+          tr =       20.000min
+        tmax =       60.000min
+          nt =        72000
+   
+   
+ Friction :  
+         ifric = 1  (Manning)
+         xni =        0.020
+         xnv =        0.090
+   
+ Results summary:
+   total run =        43.35s
+             =         0.72min
+   final time       1367.10 
+                      22.78 mi
+ fail!!!
