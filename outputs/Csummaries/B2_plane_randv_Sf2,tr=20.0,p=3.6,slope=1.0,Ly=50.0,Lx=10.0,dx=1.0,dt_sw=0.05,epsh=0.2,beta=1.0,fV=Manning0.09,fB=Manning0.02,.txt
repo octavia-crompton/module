@@ -1,7 +1,0 @@
-  hydro_peak  = 9.47623023863
-  time2peak = 17.0
-  time2peak90  = 17.0
- vmax  = 19.4964322714
- hmax  = 4.09916674275
- Remax  = 4688.25657112
- runtime = 0.649 
