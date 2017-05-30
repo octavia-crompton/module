@@ -84,7 +84,6 @@ def main(argv):
     if dim == 2 and ncol == 2:
         ncol = 10          
         print '2D! Change ncol from 2 to 10'.format(ncol)
-    print ncol
 
     #for key,val in rparams.items():
     #        exec(key + '=val')
@@ -103,7 +102,6 @@ def main(argv):
     p = rain*3600
     
     nprt = int(60./dt_sw)
-    print nprt
     if nprt < 1:
         nprt = 1
  
@@ -193,8 +191,6 @@ def main(argv):
     outputs = dict([(name,globals()[name]) for name in allvars])
     
     outweeds = dict([(name,globals()[name]) for name in weedvars])
-    
-    
       
     if slope > 0 and iscouple == 1:
 
@@ -229,9 +225,10 @@ def main(argv):
     
     fname = 'outputs/main/{1}.pkl'.format(folder, datastr)
     pickle.dump( outputs, open(fname, "wb" ) )
-                           
-    fname = 'outputs/weeds/{1}.pkl'.format(folder, datastr)
-    pickle.dump( outweeds, open(fname, "wb" ) )
+     
+    if weeds == 1:                      
+      fname = 'outputs/weeds/{1}.pkl'.format(folder, datastr)
+      pickle.dump( outweeds, open(fname, "wb" ) )
       
               
 def make_folders(level):
@@ -637,7 +634,7 @@ def summarize_exit():
 
 
 def subfolder():
-    subfolder = '{0}/single'.format(folder)
+    subfolder = '{0}/summary'.format(folder)
     return subfolder   
         
 if __name__ == '__main__':

@@ -24,6 +24,7 @@ params = { 'ncol' : 15, 'nrow' : 50,
         'hinit' : -100, 'depth'  : 0., # cm
         'ksatB' : 0.2/3600, 'ksatV' : 3./3600, 
         'zs' : 20, 'level' : 'B2_plane_randv_Sf',
+        'weeds' : 0
           } 
           
 folder = params['level']
@@ -45,3 +46,4 @@ else:
   print 'local run'
   print 'python build_model.py {0} 1'.format(folder)
   a = cmd('python build_model.py {0} 1'.format(folder))
+  
