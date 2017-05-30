@@ -1,0 +1,52 @@
+B2_plane_randv_Sf1 
+ 
+ ************ Results summary **************** 
+
+ ---  hydrograph summary  --- 
+  hydrograph peak  = 3.611cm/hr
+  time to peak  = 20.000min
+  time to 90% peak  = 9.000min
+ max v  = 1525.494cm/s
+ max h  = 92.437cm
+ max Re  = 1087.858m2/s
+
+ --- Fortran run-time ---
+ time = 0.717min 
+
+************ Error summary ******************
+
+ --- mass balance summary --- 
+ rain depth = 1.2cm 
+ final depth =  0.1555cm 
+ total runoff =  1.047cm
+ mass balance = -0.0027
+
+ --- boundary fluxes ---
+ flux2           = 0.000437cm 
+ flux3 (top)     = 0.0161cm 
+ flux4           = 0.000221cm 
+ backwards flux1 = 0.0cm 
+
+ ************ Input parameters **************** 
+
+ --- physical parameters: topography --- 
+ slope   = 1.0% 
+ Ly      = 50.0m 
+ Lx      = 10.0m 
+
+ --- physical parameters: rain --- 
+ P       =  3.6cm/hr 
+ tr      =  20.0min 
+ tmax    =  60.0min 
+
+ ---  roughness parameters  --- 
+ fB = Manning0.02
+ fV = Manning0.09
+
+ --- computational parameters  --- 
+ ncol    =  10 
+ nrow    =  50 
+ dt_sw   =  0.05 
+ dx      =  1.0 
+ epsh    =  0.2mm 
+ beta    =  1.0mm 

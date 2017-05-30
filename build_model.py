@@ -6,6 +6,7 @@ from commands import getoutput as cmd
 #import pandas as pd
 import shutil
 
+
 parent_dir = dirname(dirname(os.getcwd()))
 sys.path.append(os.path.join(parent_dir,'/modelfunctions'))
 
@@ -17,11 +18,11 @@ mymodules = ['analytic_fxns',
              'misc_fxns', 
              'input_phi',
              'GWfunctions' ]
+             
 for mymod in mymodules:
     if mymod in sys.modules:  
         del sys.modules[mymod]
         
-
 from GWfunctions import *
 from analytic_fxns import *
 from output_dry import *
@@ -32,12 +33,15 @@ from richards_functions import *
 
     
 def main(argv):
+    #sys.stdout.write('\r\n')
+    #calibration_data = pickle.load( open(os.path.join(parent_dir,'calibration_data',subwatershed_calibration_name)))
+    #calibration_data = calibration_data[spinup_date:stop_date]
+    
+    
     inputs = {}
     outputs = {}
-
-    level =  sys.argv[1]  
+    folder = sys.argv[1]      
     localrun =  sys.argv[2]      
-    folder = level
     fname = '{0}/input/params.p'.format(folder)
     params = pickle.load( open( fname, "rb" ) )
 
@@ -46,7 +50,7 @@ def main(argv):
         
     for key,val in params.items():
             exec(key + '=val')
-                      
+    folder = level                      
     if level[0] == 'R':
         case = 'richards'
         iscouple = 1
@@ -61,11 +65,6 @@ def main(argv):
     else:
         case = 'SVE'
         ifixh  = 0
-        if level[2] == 'i':
-            iscouple = 1
-        else:
-            iscouple = 0 
-      
 
     topo = level.strip().split('_')[1]
     veg = level.strip().split('_')[2]
@@ -81,12 +80,7 @@ def main(argv):
     except:
         dim = 1
         print 'Defaulting to 1D grid'.format(ncol)
-    if dim == 2 and ncol == 2:
-        ncol = 10          
-        print '2D! Change ncol from 2 to 10'.format(ncol)
 
-    #for key,val in rparams.items():
-    #        exec(key + '=val')
     z =  np.arange(zmin, zmax+dz, dz)        
     nz = z.shape[0]            
     hinit = hinit*np.ones(nz)
@@ -167,11 +161,11 @@ def main(argv):
     
     varsin = [ 'xcc', 'ycc', 'zcc', 'isvegcc', 'dx', 'iscouple',\
               'case', 'Lx', 'Ly', 'dim',\
-               't', 'dt', 'prate', \
-               'nt', 'nt_sw', \
+              't', 'dt', 'prate', \
+              'nt', 'nt_sw', \
               'titlestr', 'datastr',\
               'tr', 'slope', 'dt_sw', \
-              # 'p', 'rain', 'epsh', 'beta',
+              'p', 'rain', 'epsh', 'beta',
               ]
     varsout =  [ 't_p', 'hydro_p', \
                'h', 'u', 'v', 'vmag', \

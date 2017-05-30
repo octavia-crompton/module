@@ -12,7 +12,7 @@
 #SBATCH --time=00:30:00
 #
 ## Command(s) to run:
-python test.py 
+python testpar.py
 
 
 
